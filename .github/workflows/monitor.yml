@@ -1,0 +1,71 @@
+name: Codex Reset Monitor
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run without sending notification or writing state"
+        required: false
+        default: "false"
+      force:
+        description: "Send even if fingerprint is unchanged"
+        required: false
+        default: "false"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: codex-reset-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run monitor
+        env:
+          LARK_WEBHOOK_URL: ${{ secrets.LARK_WEBHOOK_URL }}
+          LARK_WEBHOOK_SECRET: ${{ secrets.LARK_WEBHOOK_SECRET }}
+          CODEX_RESETS_API_URL: ${{ vars.CODEX_RESETS_API_URL }}
+          SOURCE_URL: ${{ vars.SOURCE_URL }}
+          STATE_PATH: data/state.json
+          NOTIFY_ON_FIRST_RUN: ${{ vars.NOTIFY_ON_FIRST_RUN }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            ARGS="$ARGS --force"
+          fi
+          python src/main.py $ARGS
+
+      - name: Commit state
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/state.json
+          if git diff --cached --quiet; then
+            echo "No state changes to commit."
+          else
+            git commit -m "chore: update monitor state [skip ci]"
+            git push
+          fi
