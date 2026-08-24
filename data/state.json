@@ -1,17 +1,17 @@
 {
-  "last_fingerprint": "e0bc35e1edae27628993c5ee337f0bd153ceed02e640ffb02dc12591d861df9d",
+  "last_fingerprint": "05b7f941dac5f8f5e28699315ac2650c9c4520ef5ba4364b3a4c3df5ab3f4ad7",
   "last_snapshot": {
-    "fetched_at": "2026-08-23T23:55:52+00:00",
-    "fingerprint": "e0bc35e1edae27628993c5ee337f0bd153ceed02e640ffb02dc12591d861df9d",
-    "latest_announcement": "The banked reset will be there by 8pm. For all paid users of ChatGPT Work and Codex. Do with this information what you may.",
+    "fetched_at": "2026-08-24T05:06:01+00:00",
+    "fingerprint": "05b7f941dac5f8f5e28699315ac2650c9c4520ef5ba4364b3a4c3df5ab3f4ad7",
+    "latest_announcement": "Good Sunday. Reset has been propagated to accounts and we landed some fixes to usage for things mentioned yesterday as issues we found. You should feel a positive difference. More to come tomorrow and will keep communicating.",
     "latest_announcement_url": "https://x.com/thsottiaux",
-    "latest_reset_at": "Aug 21, 2026, 11:40 PM UTC",
+    "latest_reset_at": "Aug 24, 2026, 12:46 AM UTC",
     "latest_reset_type": "banked reset",
-    "reset_count": "45",
+    "reset_count": "46",
     "source_url": "https://codex-resets.com/",
     "watch_chance": null,
     "watch_deadline": null,
     "watch_summary": null
   },
-  "updated_at": "2026-08-23T23:55:52+00:00"
+  "updated_at": "2026-08-24T05:06:02+00:00"
 }
