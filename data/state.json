@@ -1,7 +1,7 @@
 {
   "last_fingerprint": "01c8e57b9ea54596ae4ed6c05d9d290cf3d425e65776c4fa9b9abdf8137bdd06",
   "last_snapshot": {
-    "fetched_at": "2026-08-24T06:32:16+00:00",
+    "fetched_at": "2026-08-24T07:16:37+00:00",
     "fingerprint": "01c8e57b9ea54596ae4ed6c05d9d290cf3d425e65776c4fa9b9abdf8137bdd06",
     "latest_announcement": "Good Sunday. Reset has been propagated to accounts and we landed some fixes to usage for things mentioned yesterday as issues we found. You should feel a positive difference. More to come tomorrow and will keep communicating.",
     "latest_announcement_url": "https://x.com/thsottiaux",
@@ -13,5 +13,5 @@
     "watch_deadline": null,
     "watch_summary": null
   },
-  "updated_at": "2026-08-24T06:32:18+00:00"
+  "updated_at": "2026-08-24T07:16:37+00:00"
 }
