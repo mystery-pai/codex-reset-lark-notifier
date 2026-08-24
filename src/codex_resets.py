@@ -9,6 +9,7 @@ from typing import Any
 import httpx
 from bs4 import BeautifulSoup
 
+DEFAULT_API_URL = "https://codex-resets.com/api/v1/status"
 DEFAULT_SOURCE_URL = "https://codex-resets.com/"
 MONTH_PATTERN = re.compile(
     r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2},\s+\d{4}(?:,\s+\d{1,2}:\d{2}\s+(?:AM|PM)\s+UTC)?",
@@ -52,30 +53,60 @@ def normalize_json(payload: Any, source_url: str) -> dict[str, Any]:
     if not isinstance(payload, dict):
         return build_snapshot(source_url=source_url, latest_announcement=str(payload), raw=payload)
 
-    first_item = find_first_item(payload)
+    data = first_dict(payload.get("data"))
+    root = data or payload
+    first_item = find_first_item(root)
     watch = first_dict(
-        payload.get("reset_watch"),
-        payload.get("resetWatch"),
-        payload.get("watch"),
-        payload.get("forecast"),
-        payload,
+        root.get("active_watch"),
+        root.get("reset_watch"),
+        root.get("resetWatch"),
+        root.get("watch"),
+        root.get("forecast"),
+        root,
     )
     latest_reset = first_dict(
-        payload.get("latest_reset"),
-        payload.get("latestReset"),
-        payload.get("latest"),
+        root.get("latest_reset"),
+        root.get("latestReset"),
+        root.get("latest"),
         first_item,
     )
+    latest_source = first_dict(latest_reset.get("source"))
 
     snapshot = build_snapshot(
         source_url=source_url,
-        watch_chance=first_value(
-            watch,
-            ["chance", "probability", "reset_chance", "resetChance", "score"],
+        watch_chance=format_percent(
+            first_value(
+                watch,
+                [
+                    "reset_chance_percent",
+                    "resetChancePercent",
+                    "chance",
+                    "probability",
+                    "reset_chance",
+                    "resetChance",
+                    "score",
+                ],
+            )
         ),
         watch_deadline=first_value(
             watch,
-            ["deadline", "by", "eta", "estimated_at", "estimatedAt", "target_at", "targetAt"],
+            [
+                "expires_at",
+                "expiresAt",
+                "deadline",
+                "by",
+                "eta",
+                "forecast_window",
+                "forecastWindow",
+                "estimated_at",
+                "estimatedAt",
+                "target_at",
+                "targetAt",
+            ],
+        ),
+        watch_seen_at=first_value(
+            watch,
+            ["observed_at", "observedAt", "seen_at", "seenAt"],
         ),
         watch_summary=first_value(
             watch,
@@ -89,7 +120,11 @@ def normalize_json(payload: Any, source_url: str) -> dict[str, Any]:
             latest_reset,
             ["type", "kind", "reset_type", "resetType", "classification"],
         ),
-        latest_announcement=compact_json(first_item or latest_reset),
+        latest_announcement=first_value(latest_reset, ["text", "message", "summary"])
+        or compact_json(first_item or latest_reset),
+        latest_announcement_id=first_value(latest_reset, ["id", "announcement_id", "announcementId"]),
+        latest_announcement_url=first_value(latest_source, ["url"]),
+        reset_count=first_value(first_dict(root.get("stats")), ["total"]),
         raw=payload,
     )
     return snapshot
@@ -125,8 +160,10 @@ def build_snapshot(
     watch_chance: Any | None = None,
     watch_deadline: Any | None = None,
     watch_summary: Any | None = None,
+    watch_seen_at: Any | None = None,
     latest_reset_at: Any | None = None,
     latest_reset_type: Any | None = None,
+    latest_announcement_id: Any | None = None,
     latest_announcement: Any | None = None,
     latest_announcement_url: Any | None = None,
     reset_count: Any | None = None,
@@ -136,9 +173,11 @@ def build_snapshot(
         "source_url": source_url,
         "watch_chance": stringify(watch_chance),
         "watch_deadline": stringify(watch_deadline),
+        "watch_seen_at": stringify(watch_seen_at),
         "watch_summary": stringify(watch_summary),
         "latest_reset_at": stringify(latest_reset_at),
         "latest_reset_type": stringify(latest_reset_type),
+        "latest_announcement_id": stringify(latest_announcement_id),
         "latest_announcement": stringify(latest_announcement),
         "latest_announcement_url": stringify(latest_announcement_url),
         "reset_count": stringify(reset_count),
@@ -160,6 +199,7 @@ def format_message(snapshot: dict[str, Any]) -> str:
     lines = ["👀 Codex Reset Watch 更新", ""]
     add_line(lines, "Reset chance", snapshot.get("watch_chance"))
     add_line(lines, "ETA / summary", snapshot.get("watch_deadline"))
+    add_line(lines, "Seen at", snapshot.get("watch_seen_at"))
     add_line(lines, "Evidence", snapshot.get("watch_summary"))
     add_line(lines, "Latest reset", snapshot.get("latest_reset_at"))
     add_line(lines, "Reset type", snapshot.get("latest_reset_type"))
@@ -281,6 +321,14 @@ def first_value(source: dict[str, Any], keys: list[str]) -> Any | None:
         if value not in (None, ""):
             return value
     return None
+
+
+def format_percent(value: Any | None) -> Any | None:
+    if value in (None, ""):
+        return None
+    if isinstance(value, str):
+        return value if "%" in value else value.strip()
+    return f"{value}%"
 
 
 def find_first_item(payload: dict[str, Any]) -> Any | None:

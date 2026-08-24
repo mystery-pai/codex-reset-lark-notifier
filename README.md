@@ -106,12 +106,13 @@ NOTIFY_ON_FIRST_RUN
 Defaults:
 
 ```text
-SOURCE_URL=https://codex-resets.com/
+CODEX_RESETS_API_URL=https://codex-resets.com/api/v1/status
+SOURCE_URL=
 STATE_PATH=data/state.json
 NOTIFY_ON_FIRST_RUN=false
 ```
 
-`CODEX_RESETS_API_URL` is optional. If it is not set, the script fetches `SOURCE_URL` and parses the public page as a fallback.
+`CODEX_RESETS_API_URL` points to the public status API by default. `SOURCE_URL` is only needed as a fallback override, for example if you intentionally want to parse the public HTML page.
 
 ## Local setup
 
@@ -129,7 +130,9 @@ python src/main.py --dry-run
 2. Go to `Secrets and variables` -> `Actions`.
 3. Add `LARK_WEBHOOK_URL`.
 4. Add `LARK_WEBHOOK_SECRET` if the Lark bot enables signature verification.
-5. Trigger `Codex Reset Monitor` manually once from the Actions tab.
+5. Optional: add repository variable `CODEX_RESETS_API_URL` with `https://codex-resets.com/api/v1/status`.
+6. Optional: add repository variable `NOTIFY_ON_FIRST_RUN` with `true` if you want the first run to send a baseline message.
+7. Trigger `Codex Reset Monitor` manually once from the Actions tab.
 
 The workflow runs every 5 minutes.
 

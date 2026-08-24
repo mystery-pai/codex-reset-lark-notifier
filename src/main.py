@@ -6,7 +6,7 @@ from typing import Any
 
 from dotenv import load_dotenv
 
-from codex_resets import DEFAULT_SOURCE_URL, format_message, normalize_from_url, utc_now_iso
+from codex_resets import DEFAULT_API_URL, format_message, normalize_from_url, utc_now_iso
 from lark import send_text
 from state import load_state, save_state
 
@@ -32,7 +32,7 @@ def run(args: argparse.Namespace) -> int:
         args.source_url
         or os.getenv("CODEX_RESETS_API_URL")
         or os.getenv("SOURCE_URL")
-        or DEFAULT_SOURCE_URL
+        or DEFAULT_API_URL
     )
     state_path = os.getenv("STATE_PATH", "data/state.json")
     notify_on_first_run = str_to_bool(os.getenv("NOTIFY_ON_FIRST_RUN"), default=False)
