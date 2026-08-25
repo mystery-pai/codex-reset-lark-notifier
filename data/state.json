@@ -1,20 +1,20 @@
 {
-  "last_fingerprint": "e324ca460351adbb7c68436b5586b67ac1d27ab10426466a63ddf5f8b5cdec3b",
+  "last_fingerprint": "fa9c981944334ea673d5d250ec396b2b9609858f060bcdaccda723cf8afeca10",
   "last_snapshot": {
-    "fetched_at": "2026-08-25T14:11:50+00:00",
-    "fingerprint": "e324ca460351adbb7c68436b5586b67ac1d27ab10426466a63ddf5f8b5cdec3b",
-    "latest_announcement": "Good Sunday. Reset has been propagated to accounts and we landed some fixes to usage for things mentioned yesterday as issues we found. You should feel a positive difference. More to come tomorrow and will keep communicating. https://t.co/6mgUetJnhg",
-    "latest_announcement_id": "2091688655828246890",
-    "latest_announcement_url": "https://x.com/thsottiaux/status/2091688655828246890",
-    "latest_reset_at": "2026-08-24T00:46:51.000Z",
+    "fetched_at": "2026-08-25T15:03:32+00:00",
+    "fingerprint": "fa9c981944334ea673d5d250ec396b2b9609858f060bcdaccda723cf8afeca10",
+    "latest_announcement": "Usage limits reset. Tibo has not announced this one on X yet.",
+    "latest_announcement_id": "observed-20260825T143200Z",
+    "latest_announcement_url": null,
+    "latest_reset_at": "2026-08-25T14:30:00.000Z",
     "latest_reset_type": "regular",
     "raw_shape": "dict:data,meta",
-    "reset_count": "46",
+    "reset_count": "47",
     "source_url": "https://codex-resets.com/api/v1/status",
     "watch_chance": null,
     "watch_deadline": null,
     "watch_seen_at": null,
     "watch_summary": null
   },
-  "updated_at": "2026-08-25T14:11:50+00:00"
+  "updated_at": "2026-08-25T15:03:33+00:00"
 }
