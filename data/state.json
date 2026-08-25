@@ -1,7 +1,7 @@
 {
   "last_fingerprint": "fa9c981944334ea673d5d250ec396b2b9609858f060bcdaccda723cf8afeca10",
   "last_snapshot": {
-    "fetched_at": "2026-08-25T16:31:00+00:00",
+    "fetched_at": "2026-08-25T17:14:26+00:00",
     "fingerprint": "fa9c981944334ea673d5d250ec396b2b9609858f060bcdaccda723cf8afeca10",
     "latest_announcement": "Usage limits reset. Tibo has not announced this one on X yet.",
     "latest_announcement_id": "observed-20260825T143200Z",
@@ -16,5 +16,5 @@
     "watch_seen_at": null,
     "watch_summary": null
   },
-  "updated_at": "2026-08-25T16:31:00+00:00"
+  "updated_at": "2026-08-25T17:14:26+00:00"
 }
