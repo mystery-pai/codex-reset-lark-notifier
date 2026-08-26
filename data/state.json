@@ -1,20 +1,20 @@
 {
-  "last_fingerprint": "bd992ca265fd328c849caf7b1793ae1287e8ad6ef6933b1a7c9f7ab1660af065",
+  "last_fingerprint": "7f3dd7f72c7f0d1ad2256ff7ef883844cac075f1becd33cc29e697e498fdbece",
   "last_snapshot": {
-    "fetched_at": "2026-08-26T02:12:39+00:00",
-    "fingerprint": "bd992ca265fd328c849caf7b1793ae1287e8ad6ef6933b1a7c9f7ab1660af065",
+    "fetched_at": "2026-08-26T03:17:33+00:00",
+    "fingerprint": "7f3dd7f72c7f0d1ad2256ff7ef883844cac075f1becd33cc29e697e498fdbece",
     "latest_announcement": "@dtzy_88 Ah yeah, forgot to say",
     "latest_announcement_id": "observed-20260825T143200Z",
     "latest_announcement_url": "https://x.com/thsottiaux/status/2092311059197808936",
     "latest_reset_at": "2026-08-25T14:30:00.000Z",
     "latest_reset_type": "regular",
     "raw_shape": "dict:data,meta",
-    "reset_count": "47",
+    "reset_count": "46",
     "source_url": "https://codex-resets.com/api/v1/status",
     "watch_chance": null,
     "watch_deadline": null,
     "watch_seen_at": null,
     "watch_summary": null
   },
-  "updated_at": "2026-08-26T02:12:39+00:00"
+  "updated_at": "2026-08-26T03:17:34+00:00"
 }
