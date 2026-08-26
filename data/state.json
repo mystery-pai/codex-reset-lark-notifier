@@ -1,7 +1,7 @@
 {
   "last_fingerprint": "7f3dd7f72c7f0d1ad2256ff7ef883844cac075f1becd33cc29e697e498fdbece",
   "last_snapshot": {
-    "fetched_at": "2026-08-26T04:08:39+00:00",
+    "fetched_at": "2026-08-26T04:53:39+00:00",
     "fingerprint": "7f3dd7f72c7f0d1ad2256ff7ef883844cac075f1becd33cc29e697e498fdbece",
     "latest_announcement": "@dtzy_88 Ah yeah, forgot to say",
     "latest_announcement_id": "observed-20260825T143200Z",
@@ -16,5 +16,5 @@
     "watch_seen_at": null,
     "watch_summary": null
   },
-  "updated_at": "2026-08-26T04:08:39+00:00"
+  "updated_at": "2026-08-26T04:53:39+00:00"
 }
