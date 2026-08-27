@@ -1,24 +1,24 @@
 {
-  "last_fingerprint": "192de4e55d62e874ca48664819097f7406671dce45be09b54c63513749929cc3",
+  "last_fingerprint": "8b9c3d4cf5b0a16bf284b5c40b5ced1db2f5c48e6f043917c5afbf8a308b7fd6",
   "last_snapshot": {
-    "active_watch_present": "True",
-    "fetched_at": "2026-08-27T13:23:56+00:00",
-    "fingerprint": "192de4e55d62e874ca48664819097f7406671dce45be09b54c63513749929cc3",
-    "latest_announcement": "@dtzy_88 Ah yeah, forgot to say",
-    "latest_announcement_id": "observed-20260825T143200Z",
-    "latest_announcement_url": "https://x.com/thsottiaux/status/2092311059197808936",
-    "latest_reset_at": "2026-08-25T14:30:00.000Z",
+    "active_watch_present": "False",
+    "fetched_at": "2026-08-27T22:59:26+00:00",
+    "fingerprint": "8b9c3d4cf5b0a16bf284b5c40b5ced1db2f5c48e6f043917c5afbf8a308b7fd6",
+    "latest_announcement": "Never slept better and feeling reseted. Brand new me and brand new usage for all ChatGPT Work and Codex users. Regaining my youth one button press at a time.\n\nHappy Thursday",
+    "latest_announcement_id": "2093014447833116908",
+    "latest_announcement_url": "https://x.com/thsottiaux/status/2093014447833116908",
+    "latest_reset_at": "2026-08-27T16:35:05.000Z",
     "latest_reset_type": "regular",
-    "raw_shape": "dict:data,meta data:active_watch,latest_reset,stats active_watch:present",
-    "reset_count": "46",
+    "raw_shape": "dict:data,meta data:active_watch,latest_reset,stats active_watch:missing",
+    "reset_count": "47",
     "source_url": "https://codex-resets.com/api/v1/status",
-    "watch_chance": "60%",
-    "watch_deadline": "by end of thursday",
-    "watch_expires_at": "2026-08-28T07:00:00.000Z",
-    "watch_level": "strong",
-    "watch_seen_at": "2026-08-27T06:31:31.000Z",
-    "watch_source_url": "https://x.com/thsottiaux/status/2092862554632826968",
-    "watch_summary": "A good thing about having aged is that I feel that it’s been 20 years since I’ve pressed the reset button. Intrigued to see if I can find it tomorrow and dust it up"
+    "watch_chance": null,
+    "watch_deadline": null,
+    "watch_expires_at": null,
+    "watch_level": null,
+    "watch_seen_at": null,
+    "watch_source_url": null,
+    "watch_summary": null
   },
-  "updated_at": "2026-08-27T13:23:57+00:00"
+  "updated_at": "2026-08-27T22:59:27+00:00"
 }
