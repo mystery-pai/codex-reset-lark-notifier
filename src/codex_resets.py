@@ -56,14 +56,17 @@ def normalize_json(payload: Any, source_url: str) -> dict[str, Any]:
     data = first_dict(payload.get("data"))
     root = data or payload
     first_item = find_first_item(root)
-    watch = first_dict(
+
+    active_watch = first_dict(
         root.get("active_watch"),
         root.get("reset_watch"),
         root.get("resetWatch"),
         root.get("watch"),
         root.get("forecast"),
-        root,
     )
+    watch = active_watch or root
+    watch_source = first_dict(watch.get("source"))
+
     latest_reset = first_dict(
         root.get("latest_reset"),
         root.get("latestReset"),
@@ -71,9 +74,12 @@ def normalize_json(payload: Any, source_url: str) -> dict[str, Any]:
         first_item,
     )
     latest_source = first_dict(latest_reset.get("source"))
+    stats = first_dict(root.get("stats"))
 
     snapshot = build_snapshot(
         source_url=source_url,
+        active_watch_present=bool(active_watch),
+        watch_level=first_value(watch, ["level", "severity", "status"]),
         watch_chance=format_percent(
             first_value(
                 watch,
@@ -91,18 +97,20 @@ def normalize_json(payload: Any, source_url: str) -> dict[str, Any]:
         watch_deadline=first_value(
             watch,
             [
-                "expires_at",
-                "expiresAt",
+                "forecast_window",
+                "forecastWindow",
                 "deadline",
                 "by",
                 "eta",
-                "forecast_window",
-                "forecastWindow",
                 "estimated_at",
                 "estimatedAt",
                 "target_at",
                 "targetAt",
             ],
+        ),
+        watch_expires_at=first_value(
+            watch,
+            ["expires_at", "expiresAt", "expiry", "valid_until", "validUntil"],
         ),
         watch_seen_at=first_value(
             watch,
@@ -112,6 +120,7 @@ def normalize_json(payload: Any, source_url: str) -> dict[str, Any]:
             watch,
             ["summary", "reason", "evidence", "message", "text"],
         ),
+        watch_source_url=first_value(watch_source, ["url"]),
         latest_reset_at=first_value(
             latest_reset,
             ["at", "time", "date", "created_at", "createdAt", "announced_at", "announcedAt"],
@@ -124,7 +133,7 @@ def normalize_json(payload: Any, source_url: str) -> dict[str, Any]:
         or compact_json(first_item or latest_reset),
         latest_announcement_id=first_value(latest_reset, ["id", "announcement_id", "announcementId"]),
         latest_announcement_url=first_value(latest_source, ["url"]),
-        reset_count=first_value(first_dict(root.get("stats")), ["total"]),
+        reset_count=first_value(stats, ["total"]),
         raw=payload,
     )
     return snapshot
@@ -142,6 +151,7 @@ def normalize_html(html: str, source_url: str) -> dict[str, Any]:
 
     return build_snapshot(
         source_url=source_url,
+        active_watch_present=watch_chance is not None,
         watch_chance=watch_chance,
         watch_deadline=watch_deadline,
         watch_summary=extract_quote(text_lines),
@@ -157,10 +167,14 @@ def normalize_html(html: str, source_url: str) -> dict[str, Any]:
 def build_snapshot(
     *,
     source_url: str,
+    active_watch_present: Any | None = None,
+    watch_level: Any | None = None,
     watch_chance: Any | None = None,
     watch_deadline: Any | None = None,
+    watch_expires_at: Any | None = None,
     watch_summary: Any | None = None,
     watch_seen_at: Any | None = None,
+    watch_source_url: Any | None = None,
     latest_reset_at: Any | None = None,
     latest_reset_type: Any | None = None,
     latest_announcement_id: Any | None = None,
@@ -171,10 +185,14 @@ def build_snapshot(
 ) -> dict[str, Any]:
     snapshot = {
         "source_url": source_url,
+        "active_watch_present": stringify(active_watch_present),
+        "watch_level": stringify(watch_level),
         "watch_chance": stringify(watch_chance),
         "watch_deadline": stringify(watch_deadline),
+        "watch_expires_at": stringify(watch_expires_at),
         "watch_seen_at": stringify(watch_seen_at),
         "watch_summary": stringify(watch_summary),
+        "watch_source_url": stringify(watch_source_url),
         "latest_reset_at": stringify(latest_reset_at),
         "latest_reset_type": stringify(latest_reset_type),
         "latest_announcement_id": stringify(latest_announcement_id),
@@ -197,14 +215,22 @@ def fingerprint_snapshot(snapshot: dict[str, Any]) -> str:
 
 def format_message(snapshot: dict[str, Any]) -> str:
     lines = ["👀 Codex Reset Watch 更新", ""]
+    add_line(lines, "Active watch", snapshot.get("active_watch_present"))
+    add_line(lines, "Watch level", snapshot.get("watch_level"))
     add_line(lines, "Reset chance", snapshot.get("watch_chance"))
-    add_line(lines, "ETA / summary", snapshot.get("watch_deadline"))
-    add_line(lines, "Seen at", snapshot.get("watch_seen_at"))
+    add_line(lines, "Forecast window", snapshot.get("watch_deadline"))
+    add_line(lines, "Expires at", snapshot.get("watch_expires_at"))
+    add_line(lines, "Observed at", snapshot.get("watch_seen_at"))
     add_line(lines, "Evidence", snapshot.get("watch_summary"))
+    add_line(lines, "Watch source", snapshot.get("watch_source_url"))
     add_line(lines, "Latest reset", snapshot.get("latest_reset_at"))
     add_line(lines, "Reset type", snapshot.get("latest_reset_type"))
     add_line(lines, "Announcement", snapshot.get("latest_announcement"))
-    add_line(lines, "Source", snapshot.get("latest_announcement_url") or snapshot.get("source_url"))
+    add_line(
+        lines,
+        "Source",
+        snapshot.get("watch_source_url") or snapshot.get("latest_announcement_url") or snapshot.get("source_url"),
+    )
     return "\n".join(lines)
 
 
@@ -362,7 +388,14 @@ def stringify(value: Any | None) -> str | None:
 
 def describe_raw_shape(value: Any) -> str:
     if isinstance(value, dict):
-        return "dict:" + ",".join(sorted(map(str, value.keys()))[:20])
+        keys = sorted(map(str, value.keys()))[:20]
+        parts = ["dict:" + ",".join(keys)]
+        data = first_dict(value.get("data"))
+        if data:
+            data_keys = sorted(map(str, data.keys()))[:20]
+            parts.append("data:" + ",".join(data_keys))
+            parts.append("active_watch:" + ("present" if isinstance(data.get("active_watch"), dict) else "missing"))
+        return " ".join(parts)
     if isinstance(value, list):
         return f"list:{len(value)}"
     return type(value).__name__
