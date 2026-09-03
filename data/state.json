@@ -1,9 +1,9 @@
 {
-  "last_fingerprint": "7b9e23f64d1003fe4ea68de1a8046b15da50f64d4357bbb52ba218de0ccd2642",
+  "last_fingerprint": "f09ecf874ba6943bf0660d833c9529884fb94b6740fa8fae12f20018923b8d18",
   "last_snapshot": {
     "active_watch_present": "True",
-    "fetched_at": "2026-09-03T15:09:08+00:00",
-    "fingerprint": "7b9e23f64d1003fe4ea68de1a8046b15da50f64d4357bbb52ba218de0ccd2642",
+    "fetched_at": "2026-09-03T18:35:02+00:00",
+    "fingerprint": "f09ecf874ba6943bf0660d833c9529884fb94b6740fa8fae12f20018923b8d18",
     "latest_announcement": "What I wanted to say yesterday is that we hit 25M active users and to celebrate we have now reset usage for all paid subscriptions for ChatGPT Work and Codex.\n\nSee you see for more news from The Reset Company. https://t.co/7Yc5znAJIc",
     "latest_announcement_id": "2094251180121854309",
     "latest_announcement_url": "https://x.com/thsottiaux/status/2094251180121854309",
@@ -12,13 +12,13 @@
     "raw_shape": "dict:data,meta data:active_watch,latest_reset,stats active_watch:present",
     "reset_count": "49",
     "source_url": "https://codex-resets.com/api/v1/status",
-    "watch_chance": "50%",
+    "watch_chance": "90%",
     "watch_deadline": "by end of Thursday",
     "watch_expires_at": "2026-09-04T07:00:00.000Z",
-    "watch_level": "elevated",
-    "watch_seen_at": "2026-09-03T07:55:00.000Z",
+    "watch_level": "strong",
+    "watch_seen_at": "2026-09-03T15:20:00.000Z",
     "watch_source_url": null,
-    "watch_summary": "Word is OpenAI ships Astra on Thursday. A Codex reset might ride along."
+    "watch_summary": "Due to the ongoing outage and the upcoming GPT-6 Astra launch, a Codex reset is expected to occur."
   },
-  "updated_at": "2026-09-03T15:09:08+00:00"
+  "updated_at": "2026-09-03T18:35:03+00:00"
 }
