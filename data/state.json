@@ -1,24 +1,24 @@
 {
-  "last_fingerprint": "f09ecf874ba6943bf0660d833c9529884fb94b6740fa8fae12f20018923b8d18",
+  "last_fingerprint": "8fbade3f4fabff5ec238b1ea5b0d1c301eb61f44a2397eb0c4be777249731560",
   "last_snapshot": {
-    "active_watch_present": "True",
-    "fetched_at": "2026-09-03T21:17:11+00:00",
-    "fingerprint": "f09ecf874ba6943bf0660d833c9529884fb94b6740fa8fae12f20018923b8d18",
-    "latest_announcement": "What I wanted to say yesterday is that we hit 25M active users and to celebrate we have now reset usage for all paid subscriptions for ChatGPT Work and Codex.\n\nSee you see for more news from The Reset Company. https://t.co/7Yc5znAJIc",
-    "latest_announcement_id": "2094251180121854309",
-    "latest_announcement_url": "https://x.com/thsottiaux/status/2094251180121854309",
-    "latest_reset_at": "2026-08-31T02:29:25.000Z",
-    "latest_reset_type": "regular",
-    "raw_shape": "dict:data,meta data:active_watch,latest_reset,stats active_watch:present",
-    "reset_count": "49",
+    "active_watch_present": "False",
+    "fetched_at": "2026-09-03T23:18:39+00:00",
+    "fingerprint": "8fbade3f4fabff5ec238b1ea5b0d1c301eb61f44a2397eb0c4be777249731560",
+    "latest_announcement": "We will give one banked reset for every day you don't have access to Astra on your paid ChatGPT plan, starting today.  Team is moving mountains to give access as fast as we can.\n\nFirst one will land in ~ 3 hours. There is still time to create your account if you don't have one.",
+    "latest_announcement_id": "2095651088502591861",
+    "latest_announcement_url": "https://x.com/thsottiaux/status/2095651088502591861",
+    "latest_reset_at": "2026-09-03T23:12:09.000Z",
+    "latest_reset_type": "banked",
+    "raw_shape": "dict:data,meta data:active_watch,latest_reset,stats active_watch:missing",
+    "reset_count": "50",
     "source_url": "https://codex-resets.com/api/v1/status",
-    "watch_chance": "90%",
-    "watch_deadline": "by end of Thursday",
-    "watch_expires_at": "2026-09-04T07:00:00.000Z",
-    "watch_level": "strong",
-    "watch_seen_at": "2026-09-03T15:20:00.000Z",
+    "watch_chance": null,
+    "watch_deadline": null,
+    "watch_expires_at": null,
+    "watch_level": null,
+    "watch_seen_at": null,
     "watch_source_url": null,
-    "watch_summary": "Due to the ongoing outage and the upcoming GPT-6 Astra launch, a Codex reset is expected to occur."
+    "watch_summary": null
   },
-  "updated_at": "2026-09-03T21:17:11+00:00"
+  "updated_at": "2026-09-03T23:18:42+00:00"
 }
