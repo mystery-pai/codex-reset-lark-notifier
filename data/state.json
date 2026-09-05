@@ -1,16 +1,16 @@
 {
-  "last_fingerprint": "42231d6791eecf5dd9d66c69c76d239cd28a4bdb80ff92ad3e918c2f6a886497",
+  "last_fingerprint": "91a0118c135e5369299cc8c082680174d03b7f20edd5e18cdddf463f8b3265ee",
   "last_snapshot": {
     "active_watch_present": "False",
-    "fetched_at": "2026-09-05T01:05:21+00:00",
-    "fingerprint": "42231d6791eecf5dd9d66c69c76d239cd28a4bdb80ff92ad3e918c2f6a886497",
+    "fetched_at": "2026-09-05T05:36:19+00:00",
+    "fingerprint": "91a0118c135e5369299cc8c082680174d03b7f20edd5e18cdddf463f8b3265ee",
     "latest_announcement": "Because we are beyond happy to have Astra rolled out today ahead of schedule and you have been super patient with us (not really, but it’s ok!)… we will do the full banked reset today too for all Plus, Pro and Business users. Lands end of day.\n\nHappy Astra day and enjoy a phenomenal weekend. \n\nPS: If you create the account or upgrade before 8pm PT you will get it too. Still time!",
     "latest_announcement_id": "2096035437299237298",
     "latest_announcement_url": "https://x.com/thsottiaux/status/2096035437299237298",
     "latest_reset_at": "2026-09-05T00:39:25.000Z",
     "latest_reset_type": "banked",
     "raw_shape": "dict:data,meta data:active_watch,latest_reset,stats active_watch:missing",
-    "reset_count": "52",
+    "reset_count": "51",
     "source_url": "https://codex-resets.com/api/v1/status",
     "watch_chance": null,
     "watch_deadline": null,
@@ -20,5 +20,5 @@
     "watch_source_url": null,
     "watch_summary": null
   },
-  "updated_at": "2026-09-05T01:05:22+00:00"
+  "updated_at": "2026-09-05T05:36:21+00:00"
 }
