@@ -68,6 +68,39 @@ Production configuration lives in GitHub Actions Secrets.
 
 Local development may use `.env`, but `.env` is ignored by git.
 
+### Decision 5: Separate state fingerprint from notification key
+
+The notifier stores two identities:
+
+```text
+fingerprint
+notification_key
+```
+
+`fingerprint` represents the broader normalized snapshot and can change when API metadata or stats change.
+
+`notification_key` represents the user-visible event that should trigger a Lark message.
+
+Why:
+
+- The API can revise aggregate stats such as `reset_count` without changing the latest reset announcement.
+- `reset_count` is useful state, but it is not shown in the Lark message.
+- Using a separate notification key prevents duplicate messages when only hidden stats change.
+
+Fields included in `notification_key`:
+
+- active watch status and details
+- latest reset time and type
+- latest announcement id, text, and URL
+- source URL
+
+Fields excluded from `notification_key`:
+
+- `fetched_at`
+- `raw_shape`
+- `reset_count`
+- other bookkeeping fields
+
 ## Repository layout
 
 ```text
@@ -147,7 +180,9 @@ The script builds a normalized snapshot containing fields such as:
 - latest announcement text
 - source URL
 
-A notification is sent only when the normalized fingerprint changes.
+A notification is sent only when `notification_key` changes.
+
+The broader `fingerprint` can still change when non-notification state changes, such as `reset_count`. In that case, the state file may be updated, but no duplicate Lark notification is sent.
 
 On the first run, the script writes a baseline state without notification by default. Set `NOTIFY_ON_FIRST_RUN=true` to send the initial snapshot.
 
