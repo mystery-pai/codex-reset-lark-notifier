@@ -17,6 +17,34 @@ MONTH_PATTERN = re.compile(
 )
 PERCENT_PATTERN = re.compile(r"[<>]?\d{1,3}%")
 
+# Fields that represent what the user sees as a meaningful notification event.
+# Do not include volatile bookkeeping or aggregate stats such as fetched_at,
+# raw_shape, or reset_count. The API can revise reset_count without changing the
+# latest reset event, which would otherwise duplicate the same Lark message.
+NOTIFICATION_KEY_FIELDS = (
+    "source_url",
+    "active_watch_present",
+    "watch_level",
+    "watch_chance",
+    "watch_deadline",
+    "watch_expires_at",
+    "watch_seen_at",
+    "watch_summary",
+    "watch_source_url",
+    "latest_reset_at",
+    "latest_reset_type",
+    "latest_announcement_id",
+    "latest_announcement",
+    "latest_announcement_url",
+)
+
+SNAPSHOT_FINGERPRINT_EXCLUDE = {
+    "fetched_at",
+    "fingerprint",
+    "notification_key",
+    "raw_shape",
+}
+
 
 def utc_now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
@@ -201,14 +229,23 @@ def build_snapshot(
         "reset_count": stringify(reset_count),
         "fetched_at": utc_now_iso(),
     }
+    snapshot["notification_key"] = notification_key_snapshot(snapshot)
     snapshot["fingerprint"] = fingerprint_snapshot(snapshot)
     if raw is not None:
         snapshot["raw_shape"] = describe_raw_shape(raw)
     return snapshot
 
 
+def notification_key_snapshot(snapshot: dict[str, Any] | None) -> str | None:
+    if not isinstance(snapshot, dict):
+        return None
+    stable = {key: snapshot.get(key) for key in NOTIFICATION_KEY_FIELDS}
+    payload = json.dumps(stable, ensure_ascii=False, sort_keys=True)
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
 def fingerprint_snapshot(snapshot: dict[str, Any]) -> str:
-    stable = {k: v for k, v in snapshot.items() if k not in {"fetched_at", "fingerprint", "raw_shape"}}
+    stable = {k: v for k, v in snapshot.items() if k not in SNAPSHOT_FINGERPRINT_EXCLUDE}
     payload = json.dumps(stable, ensure_ascii=False, sort_keys=True)
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
