@@ -1,26 +1,26 @@
 {
-  "last_fingerprint": "91a0118c135e5369299cc8c082680174d03b7f20edd5e18cdddf463f8b3265ee",
-  "last_notification_key": "3d4226d5a46d3d2aa2a4c396ea80c45d898c00a6ba945087a6e30e33b88e5520",
+  "last_fingerprint": "10ebab6176c57aeb9780ff1054d956f4b13d98cc55fcfecd6ef144e51b8d0796",
+  "last_notification_key": "731252b4c7638e19951004b6e6b4d5c00825bef7941baa99675840201f07280c",
   "last_snapshot": {
-    "active_watch_present": "False",
-    "fetched_at": "2026-09-05T09:17:57+00:00",
-    "fingerprint": "91a0118c135e5369299cc8c082680174d03b7f20edd5e18cdddf463f8b3265ee",
+    "active_watch_present": "True",
+    "fetched_at": "2026-09-06T21:38:05+00:00",
+    "fingerprint": "10ebab6176c57aeb9780ff1054d956f4b13d98cc55fcfecd6ef144e51b8d0796",
     "latest_announcement": "Because we are beyond happy to have Astra rolled out today ahead of schedule and you have been super patient with us (not really, but it’s ok!)… we will do the full banked reset today too for all Plus, Pro and Business users. Lands end of day.\n\nHappy Astra day and enjoy a phenomenal weekend. \n\nPS: If you create the account or upgrade before 8pm PT you will get it too. Still time!",
     "latest_announcement_id": "2096035437299237298",
     "latest_announcement_url": "https://x.com/thsottiaux/status/2096035437299237298",
     "latest_reset_at": "2026-09-05T00:39:25.000Z",
     "latest_reset_type": "banked",
-    "notification_key": "3d4226d5a46d3d2aa2a4c396ea80c45d898c00a6ba945087a6e30e33b88e5520",
-    "raw_shape": "dict:data,meta data:active_watch,latest_reset,stats active_watch:missing",
+    "notification_key": "731252b4c7638e19951004b6e6b4d5c00825bef7941baa99675840201f07280c",
+    "raw_shape": "dict:data,meta data:active_watch,latest_reset,stats active_watch:present",
     "reset_count": "51",
     "source_url": "https://codex-resets.com/api/v1/status",
-    "watch_chance": null,
-    "watch_deadline": null,
-    "watch_expires_at": null,
-    "watch_level": null,
-    "watch_seen_at": null,
-    "watch_source_url": null,
-    "watch_summary": null
+    "watch_chance": "45%",
+    "watch_deadline": "within 24h",
+    "watch_expires_at": "2026-09-07T20:09:56.000Z",
+    "watch_level": "elevated",
+    "watch_seen_at": "2026-09-06T20:09:56.000Z",
+    "watch_source_url": "https://x.com/thsottiaux/status/2096692394435752258",
+    "watch_summary": "@Gelassoldat @rezoundous Who says it won't reset in a while 👀"
   },
-  "updated_at": "2026-09-05T09:17:57+00:00"
+  "updated_at": "2026-09-06T21:38:06+00:00"
 }
