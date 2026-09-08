@@ -1,16 +1,16 @@
 {
-  "last_fingerprint": "dacc67b339e5f5372e923376fbc07437597d9b23226fe82bb2d4cf5d33f8b79d",
-  "last_notification_key": "c88ad49e86895bb7da013933749fd608ea4e527f5fb48e918f2accd4ceafe1da",
+  "last_fingerprint": "38eeb1f13367e836aa2ea44fe252638ff8c987173d1152c063f877487689fb43",
+  "last_notification_key": "a3dfb89d1ee17d7dae643cc7f93708fa01405a1b2094b6a87641450634509694",
   "last_snapshot": {
     "active_watch_present": "False",
-    "fetched_at": "2026-09-08T04:56:46+00:00",
-    "fingerprint": "dacc67b339e5f5372e923376fbc07437597d9b23226fe82bb2d4cf5d33f8b79d",
-    "latest_announcement": "Codex usage limits have been reset. Check your limits.",
+    "fetched_at": "2026-09-08T09:17:22+00:00",
+    "fingerprint": "38eeb1f13367e836aa2ea44fe252638ff8c987173d1152c063f877487689fb43",
+    "latest_announcement": "All reset for everyone. Enjoy the week with Astra. https://t.co/WBM38JotGO",
     "latest_announcement_id": "observed-2097043464538264003",
-    "latest_announcement_url": "https://x.com/thsottiaux/status/2097043464538264003",
+    "latest_announcement_url": "https://x.com/thsottiaux/status/2097174560412246215",
     "latest_reset_at": "2026-09-08T01:56:57.501Z",
     "latest_reset_type": "regular",
-    "notification_key": "c88ad49e86895bb7da013933749fd608ea4e527f5fb48e918f2accd4ceafe1da",
+    "notification_key": "a3dfb89d1ee17d7dae643cc7f93708fa01405a1b2094b6a87641450634509694",
     "raw_shape": "dict:data,meta data:active_watch,latest_reset,scheduled_reset,stats active_watch:missing",
     "reset_count": "52",
     "source_url": "https://codex-resets.com/api/v1/status",
@@ -22,5 +22,5 @@
     "watch_source_url": null,
     "watch_summary": null
   },
-  "updated_at": "2026-09-08T04:56:47+00:00"
+  "updated_at": "2026-09-08T09:17:23+00:00"
 }
