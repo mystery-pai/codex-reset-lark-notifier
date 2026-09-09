@@ -1,18 +1,18 @@
 {
-  "last_fingerprint": "38eeb1f13367e836aa2ea44fe252638ff8c987173d1152c063f877487689fb43",
-  "last_notification_key": "a3dfb89d1ee17d7dae643cc7f93708fa01405a1b2094b6a87641450634509694",
+  "last_fingerprint": "7dbfba033e3b4b91681282793f7100d24d237e6af4b885224a656e83e08427e4",
+  "last_notification_key": "143227ce6ef7f6d50035d280465590ff27ba87977853422fbcd767ae8a1fa071",
   "last_snapshot": {
     "active_watch_present": "False",
-    "fetched_at": "2026-09-08T09:17:22+00:00",
-    "fingerprint": "38eeb1f13367e836aa2ea44fe252638ff8c987173d1152c063f877487689fb43",
-    "latest_announcement": "All reset for everyone. Enjoy the week with Astra. https://t.co/WBM38JotGO",
-    "latest_announcement_id": "observed-2097043464538264003",
-    "latest_announcement_url": "https://x.com/thsottiaux/status/2097174560412246215",
-    "latest_reset_at": "2026-09-08T01:56:57.501Z",
-    "latest_reset_type": "regular",
-    "notification_key": "a3dfb89d1ee17d7dae643cc7f93708fa01405a1b2094b6a87641450634509694",
+    "fetched_at": "2026-09-09T19:50:24+00:00",
+    "fingerprint": "7dbfba033e3b4b91681282793f7100d24d237e6af4b885224a656e83e08427e4",
+    "latest_announcement": "There was a bit of a kerfuffle this morning with some banked resets not fully applying when used in ChatGPT Work and Codex. Everyone who used one in the affected time window is getting another one and an email to apologize.",
+    "latest_announcement_id": "2097752790177370535",
+    "latest_announcement_url": "https://x.com/thsottiaux/status/2097752790177370535",
+    "latest_reset_at": "2026-09-09T18:23:34.000Z",
+    "latest_reset_type": "banked",
+    "notification_key": "143227ce6ef7f6d50035d280465590ff27ba87977853422fbcd767ae8a1fa071",
     "raw_shape": "dict:data,meta data:active_watch,latest_reset,scheduled_reset,stats active_watch:missing",
-    "reset_count": "52",
+    "reset_count": "53",
     "source_url": "https://codex-resets.com/api/v1/status",
     "watch_chance": null,
     "watch_deadline": null,
@@ -22,5 +22,5 @@
     "watch_source_url": null,
     "watch_summary": null
   },
-  "updated_at": "2026-09-08T09:17:23+00:00"
+  "updated_at": "2026-09-09T19:50:25+00:00"
 }
