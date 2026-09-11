@@ -1,26 +1,26 @@
 {
-  "last_fingerprint": "38eeb1f13367e836aa2ea44fe252638ff8c987173d1152c063f877487689fb43",
-  "last_notification_key": "a3dfb89d1ee17d7dae643cc7f93708fa01405a1b2094b6a87641450634509694",
+  "last_fingerprint": "f80e89ad43a26105d8a6405e6c531208dc15e11bc8d790ac4cc1b260527b20c1",
+  "last_notification_key": "9a49f8b20bc8a3fd322afb218f4d12eb948bae5b297f28af43f3ff26f7836df3",
   "last_snapshot": {
-    "active_watch_present": "False",
-    "fetched_at": "2026-09-10T11:43:36+00:00",
-    "fingerprint": "38eeb1f13367e836aa2ea44fe252638ff8c987173d1152c063f877487689fb43",
+    "active_watch_present": "True",
+    "fetched_at": "2026-09-11T09:47:23+00:00",
+    "fingerprint": "f80e89ad43a26105d8a6405e6c531208dc15e11bc8d790ac4cc1b260527b20c1",
     "latest_announcement": "All reset for everyone. Enjoy the week with Astra. https://t.co/WBM38JotGO",
     "latest_announcement_id": "observed-2097043464538264003",
     "latest_announcement_url": "https://x.com/thsottiaux/status/2097174560412246215",
     "latest_reset_at": "2026-09-08T01:56:57.501Z",
     "latest_reset_type": "regular",
-    "notification_key": "a3dfb89d1ee17d7dae643cc7f93708fa01405a1b2094b6a87641450634509694",
-    "raw_shape": "dict:data,meta data:active_watch,latest_reset,scheduled_reset,stats active_watch:missing",
+    "notification_key": "9a49f8b20bc8a3fd322afb218f4d12eb948bae5b297f28af43f3ff26f7836df3",
+    "raw_shape": "dict:data,meta data:active_watch,latest_reset,scheduled_reset,stats active_watch:present",
     "reset_count": "52",
     "source_url": "https://codex-resets.com/api/v1/status",
-    "watch_chance": null,
-    "watch_deadline": null,
-    "watch_expires_at": null,
-    "watch_level": null,
-    "watch_seen_at": null,
-    "watch_source_url": null,
-    "watch_summary": null
+    "watch_chance": "60%",
+    "watch_deadline": "by end of this week",
+    "watch_expires_at": "2026-09-14T07:00:00.000Z",
+    "watch_level": "elevated",
+    "watch_seen_at": "2026-09-11T06:39:40.000Z",
+    "watch_source_url": "https://x.com/thsottiaux/status/2098300424520687965",
+    "watch_summary": "@CtrlAltDwayne When I say excellent service for existing users, that includes the occasional reset"
   },
-  "updated_at": "2026-09-10T11:43:37+00:00"
+  "updated_at": "2026-09-11T09:47:25+00:00"
 }
