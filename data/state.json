@@ -1,18 +1,18 @@
 {
-  "last_fingerprint": "38eeb1f13367e836aa2ea44fe252638ff8c987173d1152c063f877487689fb43",
-  "last_notification_key": "a3dfb89d1ee17d7dae643cc7f93708fa01405a1b2094b6a87641450634509694",
+  "last_fingerprint": "7aeb050aff443fc69622c2c682696e44e03049ac0dbb45bc240a4e6b954d7bbd",
+  "last_notification_key": "192977c4a7f3010095cb19fa443f274776b5f0c5f431fab1eed7fd0810cd9c72",
   "last_snapshot": {
     "active_watch_present": "False",
-    "fetched_at": "2026-09-12T07:19:49+00:00",
-    "fingerprint": "38eeb1f13367e836aa2ea44fe252638ff8c987173d1152c063f877487689fb43",
-    "latest_announcement": "All reset for everyone. Enjoy the week with Astra. https://t.co/WBM38JotGO",
-    "latest_announcement_id": "observed-2097043464538264003",
-    "latest_announcement_url": "https://x.com/thsottiaux/status/2097174560412246215",
-    "latest_reset_at": "2026-09-08T01:56:57.501Z",
+    "fetched_at": "2026-09-12T11:38:42+00:00",
+    "fingerprint": "7aeb050aff443fc69622c2c682696e44e03049ac0dbb45bc240a4e6b954d7bbd",
+    "latest_announcement": "Reset all propagated. Sweet dreams. https://t.co/VgKVUixoJG",
+    "latest_announcement_id": "2098685367058612394",
+    "latest_announcement_url": "https://x.com/thsottiaux/status/2098685367058612394",
+    "latest_reset_at": "2026-09-12T08:09:17.000Z",
     "latest_reset_type": "regular",
-    "notification_key": "a3dfb89d1ee17d7dae643cc7f93708fa01405a1b2094b6a87641450634509694",
+    "notification_key": "192977c4a7f3010095cb19fa443f274776b5f0c5f431fab1eed7fd0810cd9c72",
     "raw_shape": "dict:data,meta data:active_watch,latest_reset,scheduled_reset,stats active_watch:missing",
-    "reset_count": "52",
+    "reset_count": "53",
     "source_url": "https://codex-resets.com/api/v1/status",
     "watch_chance": null,
     "watch_deadline": null,
@@ -22,5 +22,5 @@
     "watch_source_url": null,
     "watch_summary": null
   },
-  "updated_at": "2026-09-12T07:19:50+00:00"
+  "updated_at": "2026-09-12T11:38:43+00:00"
 }
