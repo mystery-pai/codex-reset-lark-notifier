@@ -147,6 +147,32 @@ NOTIFY_ON_FIRST_RUN=false
 
 `CODEX_RESETS_API_URL` points to the public status API by default. `SOURCE_URL` is only needed as a fallback override, for example if you intentionally want to parse the public HTML page.
 
+
+## HTTP 403 on status API
+
+When the status endpoint returns HTTP 403, the monitor tries the public homepage
+at `https://codex-resets.com/`. This is a limited fallback:
+
+- Only a **verified newer reset announcement**, identified by its UTC date/time
+  and announcement text, can be delivered from the homepage.
+- If the homepage reports the same or an older reset, the run succeeds without
+  sending a message or modifying the trusted API snapshot.
+- Incomplete homepage data causes the run to fail visibly, leaving the prior
+  state untouched.
+- The homepage cannot reliably provide structured `active_watch` information;
+  watch alerts are unavailable until the API becomes accessible again.
+- A reset already delivered through the homepage is not delivered again solely
+  because the API recovers and reports the same reset minute.
+- The workflow runs unit tests before polling.
+
+A 403 indicates that the upstream service refused the request. The fallback
+does not restore API access and may also fail if the homepage blocks Actions
+runners. Check the Actions log for `source_degraded`,
+`homepage_fallback_no_new_reset`, or `homepage_fallback_failed`. If both
+endpoints return 403, contact the site's operator or use an authorized data
+source; do not assume a GitHub Actions configuration change will remove the
+upstream restriction.
+
 ## Local setup
 
 ```bash
