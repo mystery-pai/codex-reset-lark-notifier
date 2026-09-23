@@ -54,7 +54,8 @@ def reset_minute(value: Any) -> str | None:
         if "T" in raw:
             date = datetime.fromisoformat(raw.replace("Z", "+00:00"))
         else:
-            date = datetime.strptime(raw, "%b %d, %Y, %I:%M %p UTC").replace(tzinfo=timezone.utc)
+            normalized = raw.replace(",", "")
+            date = datetime.strptime(normalized, "%b %d %Y %I:%M %p UTC").replace(tzinfo=timezone.utc)
         return date.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
     except ValueError:
         return None
