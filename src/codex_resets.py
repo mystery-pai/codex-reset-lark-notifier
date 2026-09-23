@@ -27,6 +27,7 @@ NOTIFICATION_KEY_FIELDS = (
     "watch_level",
     "watch_chance",
     "watch_deadline",
+    "watch_forecast_window",
     "watch_expires_at",
     "watch_seen_at",
     "watch_summary",
@@ -124,17 +125,11 @@ def normalize_json(payload: Any, source_url: str) -> dict[str, Any]:
         ),
         watch_deadline=first_value(
             watch,
-            [
-                "forecast_window",
-                "forecastWindow",
-                "deadline",
-                "by",
-                "eta",
-                "estimated_at",
-                "estimatedAt",
-                "target_at",
-                "targetAt",
-            ],
+            ["expires_at", "expiresAt", "deadline", "estimated_at", "estimatedAt", "target_at", "targetAt"],
+        ),
+        watch_forecast_window=first_value(
+            watch,
+            ["forecast_window", "forecastWindow", "by", "eta"],
         ),
         watch_expires_at=first_value(
             watch,
@@ -199,6 +194,7 @@ def build_snapshot(
     watch_level: Any | None = None,
     watch_chance: Any | None = None,
     watch_deadline: Any | None = None,
+    watch_forecast_window: Any | None = None,
     watch_expires_at: Any | None = None,
     watch_summary: Any | None = None,
     watch_seen_at: Any | None = None,
@@ -217,6 +213,7 @@ def build_snapshot(
         "watch_level": stringify(watch_level),
         "watch_chance": stringify(watch_chance),
         "watch_deadline": stringify(watch_deadline),
+        "watch_forecast_window": stringify(watch_forecast_window),
         "watch_expires_at": stringify(watch_expires_at),
         "watch_seen_at": stringify(watch_seen_at),
         "watch_summary": stringify(watch_summary),
@@ -255,9 +252,9 @@ def format_message(snapshot: dict[str, Any]) -> str:
     add_line(lines, "Active watch", snapshot.get("active_watch_present"))
     add_line(lines, "Watch level", snapshot.get("watch_level"))
     add_line(lines, "Reset chance", snapshot.get("watch_chance"))
-    add_line(lines, "Forecast window", snapshot.get("watch_deadline"))
-    add_line(lines, "Expires at", snapshot.get("watch_expires_at"))
-    add_line(lines, "Observed at", snapshot.get("watch_seen_at"))
+    add_line(lines, "Forecast window", snapshot.get("watch_forecast_window"))
+    add_line(lines, "Expires at", snapshot.get("watch_expires_at") or snapshot.get("watch_deadline"))
+    add_line(lines, "Seen at", snapshot.get("watch_seen_at"))
     add_line(lines, "Evidence", snapshot.get("watch_summary"))
     add_line(lines, "Watch source", snapshot.get("watch_source_url"))
     add_line(lines, "Latest reset", snapshot.get("latest_reset_at"))
