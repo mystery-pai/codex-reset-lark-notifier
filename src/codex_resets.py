@@ -27,7 +27,6 @@ NOTIFICATION_KEY_FIELDS = (
     "watch_level",
     "watch_chance",
     "watch_deadline",
-    "watch_forecast_window",
     "watch_expires_at",
     "watch_seen_at",
     "watch_summary",
