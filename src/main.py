@@ -52,7 +52,7 @@ def reset_minute(value: Any) -> str | None:
         return None
     raw = value.strip()
     try:
-        if re.match(r"^\\d{4}-\\d{2}-\\d{2}T", raw):
+        if re.match(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}T", raw):
             date = datetime.fromisoformat(raw.replace("Z", "+00:00"))
         else:
             normalized = raw.replace(",", "")
